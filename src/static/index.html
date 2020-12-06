@@ -10,6 +10,7 @@
 
     <h3>City Name</h3>
     <ul>
+<li>Weather <span id="weather">: </span> </li>
       <li>Humidity <span id="humidity"></span></li>
       <li>Pressure <span id="pressure"></span></li>
       <li>Temperature <span id="temperature"></span></li>
@@ -34,6 +35,7 @@
         humidity.innerHTML = data.main.humidity;
         pressure.innerHTML = data.main.pressure;
         temperature.innerHTML = data.main.temp;
+       weather.innerHTML = data.weather[0].description;
 
         cityInput.value = "";
       });
