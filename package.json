@@ -4,18 +4,28 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/index.js",
-"start": "node src/index.js"
+    "dev": "nodemon src/index.js --exec babel-node",
+    "start": "node dist/index.js",
+    "build": "npm run clean && babel src --out-dir dist && ncp ./src/static ./dist/static",
+    "clean": "rimraf dist"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/polyfill": "^7.12.1",
     "axios": "^0.21.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.6"
+    "@babel/cli": "^7.12.8",
+    "@babel/core": "^7.12.9",
+    "@babel/node": "^7.12.6",
+    "@babel/plugin-transform-runtime": "^7.12.1",
+    "@babel/preset-env": "^7.12.7",
+    "ncp": "^2.0.0",
+    "nodemon": "^2.0.6",
+    "rimraf": "^3.0.2"
   }
 }

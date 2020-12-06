@@ -1,12 +1,12 @@
-const express = require("express");
-const config = require("./config");
-const axios = require("axios");
-const path = require("path");
+import express from "express";
+import config from "./config";
+import axios from "axios";
+import path from "path";
 
 const app = express();
 
 // settings
-app.set('port', process.env.PORT || 3000);
+app.set("port", process.env.PORT || 3000);
 
 // weather api
 app.get("/weather/:city", async (req, res) => {
@@ -20,5 +20,5 @@ app.get("/weather/:city", async (req, res) => {
 // static files
 app.use(express.static(path.join(__dirname, "static")));
 
-app.listen(app.get('port'));
+app.listen(app.get("port"));
 console.log("Server on port 3000");
