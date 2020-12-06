@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Weather App</title>
+  </head>
+  <body>
+    <h1>Weather app</h1>
+
+<h3>City Name</h3>
+<ul>
+<li>Humidity <span id="humidity"></span></li>
+<li>Pressure <span id="pressure"></span></li>
+<li>Temperature <span id="temperature"></span></li>
+</ul>
+
+    <input id="city" />
+
+    <button id="send">Send</button>
+
+    <script>
+      const cityInput = document.getElementById("city");
+      const sendButton = document.getElementById("send");
+
+      sendButton.addEventListener("click", async (e) => {
+        const cityName = cityInput.value;
+        
+	const URL = `/weather/${cityName}`
+	const res = await fetch(URL)
+	const data = await res.json();	
+	console.log(data)
+
+	humidity.innerHTML = data.main.humidity;
+	pressure.innerHTML = data.main.pressure;
+	temperature.innerHTML = data.main.temp;
+
+	cityInput.value = "";
+        
+      });
+    </script>
+  </body>
+</html>
